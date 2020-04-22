@@ -1,0 +1,32 @@
+﻿@using System.Diagnostics
+@model Processes
+@{
+    ViewData["Title"] = "Threads";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Threades of @Model.Name</h1>
+
+@Html.ActionLink("< Go back", "Index", "Processes", null)
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>State</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProcessThread thread in Model.Threads)
+        {
+            <tr>
+                <th>@thread.Id</th>
+                <th>@thread.ThreadState.ToString()</th>
+                <th>@thread.StartTime</th>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

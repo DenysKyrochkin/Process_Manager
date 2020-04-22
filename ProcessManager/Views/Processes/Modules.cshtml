@@ -1,0 +1,28 @@
+﻿@using System.Diagnostics
+@model Processes
+@{
+    ViewData["Title"] = "Modules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Modules of @Model.Name </h1>
+@Html.ActionLink("< Go back", "Index", "Processes", null)
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Path</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProcessModule module in Model.Modules)
+        {
+            <tr>
+                <th>@module.ModuleName</th>
+                <th>@module.FileName</th>
+            </tr>
+        }
+    </tbody>
+</table>
+

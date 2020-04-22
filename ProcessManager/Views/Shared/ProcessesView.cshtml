@@ -1,0 +1,24 @@
+﻿@model List<Processes>
+
+@foreach (var process in Model)
+{
+    <tr>
+        <td>
+            <div class="btn-group-sm text-center">
+                @Html.ActionLink("Modules", "Modules", "Processes", new { id = process.Id })
+                @Html.ActionLink("Threads", "Threads", "Processes", new { id = process.Id })
+                @Html.ActionLink("Stop", "Remove", "Processes", new { id = process.Id }, new { style="color: red;"})
+                @Html.ActionLink("Folder", "OpenFolder", "Processes", new { id = process.Id }, new { style = "color: green;" })
+            </div>
+        </td>
+        <td>@process.Name</td>
+        <td>@process.Id</td>
+        <td>@process.IsActive</td>
+        <td>@process.Cpu.ToString("F")</td>
+        <td>@process.Memory.ToString("F")</td>
+        <td>@process.Thread</td>
+        <td>@process.Username</td>
+        <td>@process.FilePath</td>
+        <td>@process.StartTime</td>
+    </tr>
+}

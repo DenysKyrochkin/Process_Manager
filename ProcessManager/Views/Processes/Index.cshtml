@@ -1,0 +1,201 @@
+﻿@using Newtonsoft.Json
+@using ProcessManager.Sort
+@model List<Processes>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Process List</h1>
+
+<table class="table table-sm table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <button type="button">
+                    Actions
+                </button>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Name
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 1 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort1"></select>
+                            </div>
+                            <button type="submit">Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Id
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 2 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)" name="Sort2"></select>
+                            </div>
+                            <button type="submit">Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Active
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 3 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort3"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CPU
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 4 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort4"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Memory
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 5 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort5"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Threads
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 6 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort6"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Username
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 7 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort7"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Path
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 8 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort8"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+
+
+            <th>
+                <div class="dropdown">
+                    <button  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Start Time
+                    </button>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Sort", "Processes", new { id = 9 }, FormMethod.Post, null, new { @class = "px-4 py-3" }))
+                        {
+                            <div class="form-group">
+                                <label>Sort</label>
+                                <select asp-items="new SelectList(Sort.SortList)"  name="Sort9"></select>
+                            </div>
+                            <button type="submit" >Proceed</button>
+                        }
+                    </div>
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+
+
+
+    <tbody class="table-body">
+    </tbody>
+
+
+
+</table>
